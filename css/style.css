@@ -691,13 +691,6 @@ b i:last-child {
     }
 }
 
-.footer#s9m-home {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: rgba(250, 250, 250, .0);
-}
-
 
 /* portfolio section
 ==================================================*/
