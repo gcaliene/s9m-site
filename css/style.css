@@ -82,7 +82,7 @@ a {
 }
 
 .container-fluid {
-  background-image: url("/../img/home.jpg");
+  background-image: url("../img/home.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -692,6 +692,7 @@ b i:last-child {
 }
 
 
+
 /* portfolio section
 ==================================================*/
 
@@ -1119,6 +1120,25 @@ textarea:focus {
 
 /* Responsive media queries
 ==================================================*/
+@media (max-width: 1366px) {
+  .container-fluid {
+    background-image: url("/../img/home-1340.jpg");
+  }
+}
+
+@media (max-width: 1040px)
+and (orientation: portrait) {
+  .container-fluid {
+    background-image: url("/../img/home-1040-p.jpg");
+  }
+}
+
+@media (max-width: 1040px)
+and (orientation: landscape) {
+  .container-fluid {
+    background-image: url("/../img/home-1040-l.jpg");
+  }
+}
 
 @media (max-width: 991px) {
     .portfolio .categories-grid span {
@@ -1139,6 +1159,20 @@ textarea:focus {
     h5.feature-text {
       margin: 0px 12px 12px 12px;
     }
+}
+
+@media only screen and (max-width: 820px)
+and (orientation: landescape) {
+  .container-fluid {
+    background-image: url("/../img/home-820-l.jpg");
+  }
+}
+
+@media (max-width: 800px)
+and (orientation: portrait) {
+  .container-fluid {
+    background-image: url("/../img/home-800-p.jpg");
+  }
 }
 
 @media only screen and (max-width: 670px) {
@@ -1180,6 +1214,9 @@ textarea:focus {
 }
 
 @media only screen and (max-width: 420px) {
+    .container-fluid {
+      background-image: url("/../img/home-425-p.jpg");
+    }
     .box-headline {
         font-size: 50px;
     }
@@ -1189,5 +1226,11 @@ textarea:focus {
     .top-bar h1 {
         font-size: 30px;
         line-height: 30px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .container-fluid {
+      background-image: url("/../img/home-375-p.jpg");
     }
 }
