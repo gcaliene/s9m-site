@@ -38,15 +38,17 @@ function submitForm(e) {
   var domainTwo = getInputVal('dom-name-two');
   var domainThree = getInputVal('dom-name-three');
 
-  var date = getInputVal('observation-date');
-  var lat = getInputVal('latitude');
-  var lng = getInputVal('longitude');
-  var file = getInputVal('customFile');
-  var notes = getInputVal('obs-notes');
+  var artistName = getInputVal('artist-name');
+  var artistEmail = getInputVal('artist-email');
+  var artistPhone = getInputVal('artist-phone');
+
+  var merchLinks = getInputVal('for-sale-links');
+  var audioLinks = getInputVal('audio-sample-links');
+  var videoLinks = getInputVal('video-links');
 
   //Save message
-  saveMessage(animal, date, lat, lng, file, notes);
-
+  saveMessage(domainOne, domainTwo, domainThree, artistName, artistEmail, artistPhone, merchLinks, audioLinks, videoLinks);
+/*
   //Show alert
   document.querySelector('#submit-success').style.display = 'block';
 
@@ -60,22 +62,25 @@ function submitForm(e) {
     document.querySelector('#submit-success').style.display = 'none';
   }, 3000);
 }
-
+*/
 //Function to get form values
 function getInputVal(id) {
   return document.getElementById(id).value;
 }
 
 //Save messages to firebase
-function saveMessage(animal, date, lat, lng, file, notes) {
+function saveMessage(domainOne, domainTwo, domainThree, artistName, artistEmail, artistPhone) {
   var newMessageRef = messagesRef.push();
   newMessageRef.set({
-    animal: animal,
-    date: date,
-    lat: lat,
-    lng: lng,
-    file: file,
-    notes: notes
+    domainOne: domainOne,
+    domainTwo: domainTwo,
+    domainThree: domainThree,
+    artistName: artistName,
+    artistEmail: artistEmail,
+    artistPhone: artistPhone,
+    merchLinks: merchLinks,
+    audioLinks: audioLinks,
+    videoLinks: videoLinks
   });
 }
 
@@ -142,4 +147,5 @@ function requirements() {
     };
   }
 
+}
 };
