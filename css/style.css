@@ -68,6 +68,14 @@ a {
     text-transform: uppercase;
 }
 
+ul#require {
+  font-weight: bold;
+}
+
+ul#require li {
+  font-weight: normal;
+}
+
 .h-30 {
     height: 30px
 }

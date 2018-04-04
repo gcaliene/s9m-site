@@ -301,7 +301,7 @@
             <br>
           </nav>
         <div class="col-md-12">
-            <form action="#" method="post">
+            <form id="temp-order-form">
                 <div class="row">
                   <h5 class="feature-text">1. Give us your top 3 choices for a domain name. We will check for their avaiability and suggest options if none of your choices are available.</h5>
                     <div class="col-md-4">
@@ -354,7 +354,7 @@
                   <div class="row">
                     <h5  class="feature-text">3. Select the template you would like us to build your site with.</h5>
                     <div class="col-md-3">
-                        <select id="templates" class="form-control">
+                        <select id="templates" class="form-control" onchange="requirements()">
                           <option selected>Choose...</option>
                           <option id="aug-fifth">Augmented Fifth</option>
                           <option id="dor-min">Dorian Minor</option>
@@ -579,7 +579,7 @@
                     </div>
                   </div>
                     <div class="col-md-12">
-                        <a href="#" class="btn btn-box" id="submit-order">submit order form</a>
+                        <button class="btn btn-box" type="submit" onclick="submitForm()">Submit Order Form</button>
                     </div>
                 </div>
             </form>
@@ -616,6 +616,7 @@
 
     <!--  custom script -->
     <script src="js/custom.js"></script>
+    <script src="js/adendum.js"></script>
 
 </body>
 
