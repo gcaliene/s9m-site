@@ -1,4 +1,89 @@
 ///////////////////////////////
+// INITIALIZATION OF FIREBASE + STORAGE
+///////////////////////////////
+var config = {
+  apiKey: "AIzaSyDKXz9de2f_Ob4sSmq-pWbnqYfmbL8QCFY",
+  authDomain: "s9m-order-form.firebaseapp.com",
+  databaseURL: "https://s9m-order-form.firebaseio.com",
+  projectId: "s9m-order-form",
+  storageBucket: "gs://s9m-order-form.appspot.com",
+  messagingSenderId: "278750789582"
+};
+
+firebase.initializeApp(config);
+
+// Get a reference to the database service
+var database = firebase.database();
+
+// Get a reference to the storage service, which is used to create references in your storage bucket
+var storage = firebase.storage();
+
+
+
+///////////////////////////////
+// FORM COLLECTS AND SUBMITS ORDERS
+///////////////////////////////
+//Reference messages collection
+var messagesRef = database.ref('messages');
+
+//Listen for form submit
+document.querySelector('#temp-order-form').addEventListener('submit', submitForm);
+
+//Submit form
+function submitForm(e) {
+  e.preventDefault();
+
+  //Get values
+  var domainOne = getInputVal('dom-name-one');
+  var domainTwo = getInputVal('dom-name-two');
+  var domainThree = getInputVal('dom-name-three');
+
+  var date = getInputVal('observation-date');
+  var lat = getInputVal('latitude');
+  var lng = getInputVal('longitude');
+  var file = getInputVal('customFile');
+  var notes = getInputVal('obs-notes');
+
+  //Save message
+  saveMessage(animal, date, lat, lng, file, notes);
+
+  //Show alert
+  document.querySelector('#submit-success').style.display = 'block';
+
+  //Clear Form
+  setTimeout(function() {
+    document.querySelector('#entry-form').reset();
+  }, 0001);
+
+  //Hide alert after 3 secnds
+  setTimeout(function() {
+    document.querySelector('#submit-success').style.display = 'none';
+  }, 3000);
+}
+
+//Function to get form values
+function getInputVal(id) {
+  return document.getElementById(id).value;
+}
+
+//Save messages to firebase
+function saveMessage(animal, date, lat, lng, file, notes) {
+  var newMessageRef = messagesRef.push();
+  newMessageRef.set({
+    animal: animal,
+    date: date,
+    lat: lat,
+    lng: lng,
+    file: file,
+    notes: notes
+  });
+}
+
+
+
+
+
+///////////////////////////////
 // TEMPLATE UPLOAD REQUIREMENTS
 ///////////////////////////////
 const needsList = document.querySelector('#require');
